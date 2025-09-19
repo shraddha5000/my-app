@@ -108,7 +108,7 @@ export default function About(props) {
           </div>
         </div>
       </div>
-      {/* <button  onClick={toggleStyle} type = "button" className="btn btn-primary my-3" >{btnText}</button> */}
+      {/* <button  onClick={toggleStyle} type = "button" className="btn btn-primary my-3" >{btnText}</button>  */}
     </div>
   );
 }

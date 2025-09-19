@@ -6,11 +6,11 @@ import TextForm from './components/TextForm.js';
 import React, { useState } from 'react'
 import Alert from './components/Alert.js';
 // import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+//    BrowserRouter as Router,
+//    Routes,
+//    Route,
+//    Link
+//  } from "react-router-dom";
 
 function App() {
   const [mode, setMode]= useState('light');
@@ -25,45 +25,52 @@ function App() {
           setAlert(" ");
       }, 3000);
   }
-  const toggleMode = () =>{
+  const removeBodyClasses=()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-success')
+   
+  }
+  const toggleMode = (cls) =>{
+    removeBodyClasses();
+    document.body.classList.add('bg-'+cls)
     if(mode === 'light' ){
       setMode('dark')
       document.body.style.backgroundColor = 'grey';
       showAlert("dark mode has been enabled","success")
-      document.title = 'TextUtils - Dark Mode';
-      setInterval(() => {
-        document.title = 'TextUtils is Amazing';
-      }, 2000);
-      setInterval(() => {
-        document.title = 'install TextUtils now ';
-      }, 1500);
+      // document.title = 'TextUtils - Dark Mode';
+      // setInterval(() => {
+      //   document.title = 'TextUtils is Amazing';
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = 'install TextUtils now ';
+      // }, 1500);
     }
     
     else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("light mode has been enabled","success")
-      document.title = 'TextUtils - Light Mode';
+      // document.title = 'TextUtils - Light Mode';
     }
     
   }
   return (
   // <>
   <>
-    {/* <Router> */}
+    {/* <Router>  */}
     <Navbar title = "TextUtils" mode={mode} toggleMode={toggleMode}/>
     <Alert alert= {alert}/>
     <div className= "container my-3">
-    <TextForm  showAlert={showAlert}heading= "Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces" 
-          mode={mode}/>
-        {/* <Routes> */}
-          {/* <Route exact path="/about" element={<About mode = {mode}/>}/> */}
-          {/* <Route exact path="/" element={}
-          <TextForm  showAlert={showAlert}heading= "Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces" 
-          mode={mode}/>
-        {/* </Routes> */}
+    <TextForm  showAlert={showAlert}heading= "Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces"mode={mode}/>
+         {/* <Routes> 
+           <Route exact path="/about" element={<About mode = {mode}/>}/>
+           <Route exact path="/" element= {<TextForm  showAlert={showAlert}heading= "Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces" mode={mode}/>}/>
+         </Routes>  */}
     </div>
-    {/* </Router> */}
+    {/* </Router>  */}
     
   </>
   );

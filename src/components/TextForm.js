@@ -21,10 +21,9 @@ export default function TextForm(props) {
     props.showAlert("cleared text","success")
   }
   const handleCopy = () =>{
-    var text = document.getElementById("my box");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+   
+    navigator.clipboard.writeText(text);
+    
     props.showAlert("copied to clipboard","success")
   }
   const countWords = (str) =>{
@@ -53,7 +52,7 @@ export default function TextForm(props) {
             className="form-control"
             value = {text}
             onChange = {handleOnChange}
-            style = {{backgroundColor: props.mode=== 'light'?'white':'grey',color:props.mode=== 'light'?'black':'white'}}
+            style = {{backgroundColor: props.mode=== 'light'?'white':'#212529',color:props.mode=== 'light'?'black':'white'}}
             id="my box"
             rows="9"
           ></textarea>
